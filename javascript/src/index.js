@@ -1,4 +1,4 @@
-import _WalmartItemApi from './api/WalmartItemApi';
+import _MoviesApi from './api/MoviesApi';
 
 
-export const WalmartItemApi = _WalmartItemApi;
+export const MoviesApi = _MoviesApi;

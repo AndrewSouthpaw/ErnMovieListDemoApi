@@ -23,31 +23,31 @@ import com.walmartlabs.electrode.reactnative.bridge.RequestHandlerProcessor;
 import com.walmartlabs.electrode.reactnative.bridge.RequestProcessor;
 import com.walmartlabs.electrode.reactnative.bridge.RequestHandlerHandle;
 import java.util.*;
-import com.ErnMovieListDemoApi.ern.model.Item;
+import com.ErnMovieListDemoApi.ern.model.Movie;
 
 
-final class WalmartItemRequests implements WalmartItemApi.Requests {
-    WalmartItemRequests() {}
+final class MoviesRequests implements MoviesApi.Requests {
+    MoviesRequests() {}
 
 
     @Override
-    public RequestHandlerHandle registerAddItemRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<Item, Boolean> handler) {
-        return new RequestHandlerProcessor<>(REQUEST_ADD_ITEM, Item.class, Boolean.class, handler).execute();
+    public RequestHandlerHandle registerGetMovieDetailRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<String, Object> handler) {
+        return new RequestHandlerProcessor<>(REQUEST_GET_MOVIE_DETAIL, String.class, Object.class, handler).execute();
     }
 
     @Override
-    public RequestHandlerHandle registerFindItemsRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<Integer, List<Item>> handler) {
-        return new RequestHandlerProcessor<>(REQUEST_FIND_ITEMS, Integer.class, (Class) Item.class, handler).execute();
+    public RequestHandlerHandle registerGetTopRatedMoviesRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<None, List<Movie>> handler) {
+        return new RequestHandlerProcessor<>(REQUEST_GET_TOP_RATED_MOVIES, None.class, (Class) Movie.class, handler).execute();
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------
 
     @Override
-    public void addItem(Item item,@NonNull final ElectrodeBridgeResponseListener<Boolean> responseListener) {
-        new RequestProcessor<>(REQUEST_ADD_ITEM,  item, Boolean.class, responseListener).execute();
+    public void getMovieDetail(String movieId,@NonNull final ElectrodeBridgeResponseListener<Object> responseListener) {
+        new RequestProcessor<>(REQUEST_GET_MOVIE_DETAIL,  movieId, Object.class, responseListener).execute();
     }
     @Override
-    public void findItems(Integer limit,@NonNull final ElectrodeBridgeResponseListener<List<Item>> responseListener) {
-        new RequestProcessor<>(REQUEST_FIND_ITEMS,  limit, (Class) List.class, Item.class, responseListener).execute();
+    public void getTopRatedMovies(@NonNull final ElectrodeBridgeResponseListener<List<Movie>> responseListener) {
+        new RequestProcessor<>(REQUEST_GET_TOP_RATED_MOVIES, null, (Class) List.class, Movie.class, responseListener).execute();
     }
 }
