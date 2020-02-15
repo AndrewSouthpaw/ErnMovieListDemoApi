@@ -1,0 +1,28 @@
+{
+  "author": "andrew",
+  "dependencies": {
+    "react-native-electrode-bridge": "1.5.19"
+  },
+  "description": "ERN Generated API for ErnMovieListDemoApi",
+  "devDependencies": {
+    "flow-bin": "^0.47.0"
+  },
+  "ern": {
+    "message": {
+      "moduleName": "ErnMovieListDemoApi",
+      "namespace": "com.ErnMovieListDemoApi.ern",
+      "apiSchemaPath": "schema.json",
+      "artifactId": "react-native-ErnMovieListDemoApi-api"
+    },
+    "moduleType": "ern-api"
+  },
+  "keywords": [
+    "ern-api"
+  ],
+  "main": "javascript/src/index.js",
+  "name": "ern-movie-list-demo-api",
+  "scripts": {
+    "flow": "flow"
+  },
+  "version": "1.0.0"
+}
