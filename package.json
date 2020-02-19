@@ -24,5 +24,6 @@
   "scripts": {
     "flow": "flow"
   },
+  "repository": "https://github.com/AndrewSouthpaw/ErnMovieListDemoApi",
   "version": "1.0.3"
 }
